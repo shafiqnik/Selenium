@@ -1,0 +1,67 @@
+package AutomationFrameWork;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.*;
+//import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FirstTestCase {
+	
+	private static WebDriver driver = null;
+	private static WebElement element = null;
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		//create a new instance of Firefox driver
+		//driver = new FirefoxDriver();
+		
+	    System.setProperty("webdriver.chrome.driver","C:/Work/BrowserDriver/chromedriver.exe");
+	    
+		//driver = new InternetExplorerDriver();
+		driver = new ChromeDriver();
+		 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		//driver.get("http://contigoce.cp.contigo.com");
+		
+		loginDetail();
+		 
+		// driver.get("http://www.bbc.com");
+		
+		
+	}
+	
+	
+	
+	public static void loginDetail(){
+		
+		driver.get("http://www.bbc.com");
+		//element = driver.findElement(By.name("News"));
+		element = driver.findElement(By.linkText("News"));
+		if(element.isDisplayed()){
+			System.out.println("found the element News");
+			driver.get("http://www.bbc.com/news");
+			//element.sendKeys("bbc");
+			//element.sendKeys(Keys.RETURN);
+			//element.click();
+			
+		}
+		else{
+			System.out.print("couldn't find  News");
+			driver.get("http://www.cnn.com");
+		}
+		
+		
+		driver.get("http://www.google.com");
+		//if(element.isDisplayed()){
+			//System.out.println("password field found");
+			element.sendKeys("hello");
+			element.sendKeys(Keys.RETURN);
+		}
+		//element.sendKeys("bbc");
+		//element.sendKeys(Keys.RETURN);
+	}
+	 
+	}//end of LoginDetail function
+

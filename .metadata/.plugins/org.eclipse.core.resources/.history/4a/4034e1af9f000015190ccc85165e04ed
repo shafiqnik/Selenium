@@ -1,0 +1,60 @@
+package AutomationFrameWork;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.*;
+//import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FirstTestCase {
+	
+	private static WebDriver driver = null;
+	private static WebElement element = null;
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		//create a new instance of Firefox driver
+		//driver = new FirefoxDriver();
+		
+	    System.setProperty("webdriver.chrome.driver","C:/Work/BrowserDriver/chromedriver.exe");
+	    
+		//driver = new InternetExplorerDriver();
+		driver = new ChromeDriver();
+		 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		//driver.get("http://contigoce.cp.contigo.com");
+		
+		//loginDetail("qatest1","asdf");
+		 
+		 driver.get("http://www.google.com");
+		
+		
+	}
+	
+	
+	
+	public static void loginDetail(String myuname, String mypword ){
+		
+		
+		//element = driver.findElement(By.name("uname"));
+	//	if(element.isDisplayed()){
+		//	System.out.println("found the element uname");
+			element.sendKeys("bbc");
+			element.sendKeys(Keys.RETURN);
+			
+		}
+		else{
+			System.out.print("couldn't find  uname");
+		}
+		
+		element = driver.findElement(By.name("pword"));
+		if(element.isDisplayed()){
+			System.out.println("password field found");
+			element.sendKeys(mypword);
+			element.sendKeys(Keys.RETURN);
+		}
+	}
+	 
+	}//end of LoginDetail function
+

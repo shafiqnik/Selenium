@@ -1,0 +1,30 @@
+package AutomationFrameWork;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.*;
+//import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FirstTestCase {
+	
+	private static WebDriver driver = null;
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		//create a new instance of Firefox driver
+		//driver = new FirefoxDriver();
+		
+		//file = new File("C:/Work/BrowserDriver/chromedriver.exe");
+	    System.setProperty("webdriver.chrome.driver","C:/Work/BrowserDriver/chromedriver.exe");
+	    
+		//driver = new InternetExplorerDriver();
+		driver = new ChromeDriver();
+		 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.get("http://contigoce.cp.contigo.com");
+		
+	}
+
+}
